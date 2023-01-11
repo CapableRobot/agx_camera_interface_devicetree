@@ -604,8 +604,8 @@
          */
         modules {
             module0 {
-                badge = "imx477_left_adimx477";
-                position = "left";
+                badge = "imx477_centerleft_adimx477";
+                position = "centerleft";
                 orientation = "1";
                 status = "okay";
                 drivernode0 {
@@ -628,8 +628,8 @@
                 };
             };
             module2 {
-                badge = "imx477_right_adimx477";
-                position = "right";
+                badge = "imx477_centerright_adimx477";
+                position = "centerright";
                 orientation = "1";
                 status = "okay";
                 drivernode0 {
