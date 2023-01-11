@@ -515,12 +515,15 @@ static int imx477_power_get(struct tegracam_device *tc_dev)
 	}
 
 	/* Reset or ENABLE GPIO */
-	pw->reset_gpio = pdata->reset_gpio;
-	err = gpio_request(pw->reset_gpio, "cam_reset_gpio");
-	if (err < 0) {
-		dev_err(dev, "%s: unable to request reset_gpio (%d)\n",
-			__func__, err);
-		goto done;
+	if (pdata->reset_gpio) {
+		pw->reset_gpio = pdata->reset_gpio;
+		err = gpio_request(pw->reset_gpio, "cam_reset_gpio");
+		if (err < 0) {
+			dev_err(dev, "%s: unable to request reset_gpio (%d)\n", __func__, err);
+			goto done;
+		}
+	} else {
+		pw->reset_gpio = 0;
 	}
 
 done:
@@ -536,7 +539,6 @@ static struct camera_common_pdata *imx477_parse_dt(struct tegracam_device
 	struct device_node *np = dev->of_node;
 	struct camera_common_pdata *board_priv_pdata;
 	const struct of_device_id *match;
-	struct camera_common_pdata *ret = NULL;
 	int err = 0;
 	int gpio;
 
@@ -556,10 +558,8 @@ static struct camera_common_pdata *imx477_parse_dt(struct tegracam_device
 
 	gpio = of_get_named_gpio(np, "reset-gpios", 0);
 	if (gpio < 0) {
-		if (gpio == -EPROBE_DEFER)
-			ret = ERR_PTR(-EPROBE_DEFER);
-		dev_err(dev, "reset-gpios not found\n");
-		goto error;
+		dev_dbg(dev, "reset-gpios not found\n");
+		gpio = 0;
 	}
 	board_priv_pdata->reset_gpio = (unsigned int)gpio;
 
@@ -581,11 +581,6 @@ static struct camera_common_pdata *imx477_parse_dt(struct tegracam_device
 	board_priv_pdata->has_eeprom = of_property_read_bool(np, "has-eeprom");
 
 	return board_priv_pdata;
-
-error:
-	devm_kfree(dev, board_priv_pdata);
-
-	return ret;
 }
 
 static int imx477_set_mode(struct tegracam_device *tc_dev)
