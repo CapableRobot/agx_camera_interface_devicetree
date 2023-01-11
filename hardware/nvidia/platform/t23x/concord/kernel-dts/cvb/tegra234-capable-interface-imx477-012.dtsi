@@ -154,6 +154,13 @@
         };
     };
 
+    fixed-regulators {
+        regulator@106 {
+            regulator-boot-on;
+            regulator-always-on;
+        };
+    };
+
     i2c@3180000 {
         status =  "okay";
 
