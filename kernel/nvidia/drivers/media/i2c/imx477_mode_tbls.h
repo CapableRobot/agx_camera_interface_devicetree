@@ -30,6 +30,7 @@
 #include "imx477_mode_common.h"
 #include "imx477_mode_3840x2160_30fps.h"
 #include "imx477_mode_1920x1080_60fps.h"
+#include "imx477_mode_4032x3040_30fps.h"
 
 static const imx477_reg imx477_start[] = {
 	{IMX477_STANDBY_REG, 0x1},
@@ -45,6 +46,7 @@ static const imx477_reg imx477_stop[] = {
 enum {
 	IMX477_MODE_3840x2160_30FPS,
 	IMX477_MODE_1920x1080_60FPS,
+	IMX477_MODE_4032x3040_30FPS,
 	IMX477_MODE_COMMON,
 	IMX477_START_STREAM,
 	IMX477_STOP_STREAM,
@@ -53,6 +55,7 @@ enum {
 static const imx477_reg *mode_table[] = {
 	[IMX477_MODE_3840x2160_30FPS] = imx477_mode_3840x2160_30fps,
 	[IMX477_MODE_1920x1080_60FPS] = imx477_mode_1920x1080_60fps,
+	[IMX477_MODE_4032x3040_30FPS] = imx477_mode_4032x3040_30fps,
 	[IMX477_MODE_COMMON] = imx477_mode_common,
 	[IMX477_START_STREAM] = imx477_start,
 	[IMX477_STOP_STREAM] = imx477_stop,
@@ -69,5 +72,6 @@ static const int imx477_60_fr[] = {
 static const struct camera_common_frmfmt imx477_frmfmt[] = {
 	{{3840, 2160}, imx477_30_fr, 1, 0, IMX477_MODE_3840x2160_30FPS},
 	{{1920, 1080}, imx477_60_fr, 1, 0, IMX477_MODE_1920x1080_60FPS},
+	{{4032, 3040}, imx477_30_fr, 1, 0, IMX477_MODE_4032x3040_30FPS},
 };
 #endif /* __IMX477_I2C_TABLES__ */
