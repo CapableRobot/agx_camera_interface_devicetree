@@ -32,6 +32,7 @@
             status = "okay";
             port@0 {
                 reg = <0>;
+                status = "okay";
                 imx477_vi_in0: endpoint {
                     status = "okay";
                     port-index = <0>;
@@ -41,6 +42,7 @@
             };
             port@1 {
                 reg = <1>;
+                status = "okay";
                 imx477_vi_in1: endpoint {
                     status = "okay";
                     port-index = <1>;
@@ -50,6 +52,7 @@
             };
             port@2 {
                 reg = <2>;
+                status = "okay";
                 imx477_vi_in2: endpoint {
                     status = "okay";
                     port-index = <2>;
@@ -68,9 +71,11 @@
             #size-cells = <0>;
             channel@0 {
                 reg = <0>;
+                status = "okay";
                 ports {
                     #address-cells = <1>;
                     #size-cells = <0>;
+                    status = "okay";
                     port@0 {
                         reg = <0>;
                         status = "okay";
@@ -78,7 +83,7 @@
                             status = "okay";
                             port-index = <0>;
                             bus-width = <2>;
-                            remote-endpoint = <&imx477_dual_out0>;
+                            remote-endpoint = <&imx477_out0>;
                         };
                     };
                     port@1 {
@@ -93,9 +98,11 @@
             };
             channel@1 {
                 reg = <1>;
+                status = "okay";
                 ports {
                     #address-cells = <1>;
                     #size-cells = <0>;
+                    status = "okay";
                     port@2 {
                         reg = <0>;
                         status = "okay";
@@ -118,9 +125,11 @@
             };
             channel@2 {
                 reg = <2>;
+                status = "okay";
                 ports {
                     #address-cells = <1>;
                     #size-cells = <0>;
+                    status = "okay";
                     port@2 {
                         reg = <0>;
                         status = "okay";
@@ -220,8 +229,8 @@
                         line_length = "11200";
                         inherent_gain = "1";
                         mclk_multiplier = "80";
-                        pix_clk_hz = "840000000";
-
+                        pix_clk_hz = "300000000";
+                                      
                         gain_factor = "16";
                         framerate_factor = "1000000";
                         exposure_factor = "1000000";
@@ -260,7 +269,7 @@
                         line_length = "7000";
                         inherent_gain = "1";
                         mclk_multiplier = "80";
-                        pix_clk_hz = "840000000";
+                        pix_clk_hz = "300000000";
 
                         gain_factor = "16";
                         framerate_factor = "1000000";
@@ -286,10 +295,12 @@
                     ports {
                         #address-cells = <1>;
                         #size-cells = <0>;
+                        status = "okay";
 
                         port@0 {
                             reg = <0>;
-                            imx477_dual_out0: endpoint {
+                            status = "okay";
+                            imx477_out0: endpoint {
                                 status = "okay";
                                 port-index = <0>;
                                 bus-width = <2>;
@@ -345,7 +356,7 @@
                         line_length = "11200";
                         inherent_gain = "1";
                         mclk_multiplier = "80";
-                        pix_clk_hz = "840000000";
+                        pix_clk_hz = "300000000";
 
                         gain_factor = "16";
                         framerate_factor = "1000000";
@@ -385,7 +396,7 @@
                         line_length = "7000";
                         inherent_gain = "1";
                         mclk_multiplier = "80";
-                        pix_clk_hz = "840000000";
+                        pix_clk_hz = "300000000";
 
                         gain_factor = "16";
                         framerate_factor = "1000000";
@@ -411,9 +422,10 @@
                     ports {
                         #address-cells = <1>;
                         #size-cells = <0>;
-
+                        status = "okay";
                         port@0 {
                             reg = <0>;
+                            status = "okay";
                             imx477_out1: endpoint {
                                 status = "okay";
                                 port-index = <1>;
@@ -470,7 +482,7 @@
                         line_length = "11200";
                         inherent_gain = "1";
                         mclk_multiplier = "80";
-                        pix_clk_hz = "840000000";
+                        pix_clk_hz = "300000000";
 
                         gain_factor = "16";
                         framerate_factor = "1000000";
@@ -510,7 +522,7 @@
                         line_length = "7000";
                         inherent_gain = "1";
                         mclk_multiplier = "80";
-                        pix_clk_hz = "840000000";
+                        pix_clk_hz = "300000000";
 
                         gain_factor = "16";
                         framerate_factor = "1000000";
@@ -536,9 +548,10 @@
                     ports {
                         #address-cells = <1>;
                         #size-cells = <0>;
-
+                        status = "okay";
                         port@0 {
                             reg = <0>;
+                            status = "okay";
                             imx477_out2: endpoint {
                                 status = "okay";
                                 port-index = <2>;
@@ -603,6 +616,7 @@
          * in the module's specsheet from the vendor.
          */
         modules {
+            status = "okay";    
             module0 {
                 badge = "imx477_centerleft_adimx477";
                 position = "centerleft";
