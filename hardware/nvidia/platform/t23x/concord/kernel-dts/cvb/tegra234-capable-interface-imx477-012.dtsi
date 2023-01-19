@@ -387,8 +387,8 @@
         modules {
             status = "okay";    
             module0 {
-                badge = "imx477_centerleft_adimx477";
-                position = "centerleft";
+                badge = "nvidia_0_imx477";
+                position = "0";
                 orientation = "1";
                 status = "okay";
                 drivernode0 {
@@ -399,8 +399,8 @@
                 };
             };
             module1 {
-                badge = "imx477_center_adimx477";
-                position = "center";
+                badge = "nvidia_1_imx477";
+                position = "1";
                 orientation = "1";
                 status = "okay";
                 drivernode0 {
@@ -411,8 +411,8 @@
                 };
             };
             module2 {
-                badge = "imx477_centerright_adimx477";
-                position = "centerright";
+                badge = "nvidia_2_imx477";
+                position = "2";
                 orientation = "1";
                 status = "okay";
                 drivernode0 {
